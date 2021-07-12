@@ -161,7 +161,7 @@ type EventGetParams struct {
 
 	// AcknowledgedOnly filters search results to event which have been
 	// acknowledged.
-	AcknowledgedOnly bool `json:"acknowledged"`
+	AcknowledgedOnly bool `json:"acknowledged,omitempty"`
 
 	// MinEventID filters search results to Events with an ID greater or equal
 	// to the given ID.
