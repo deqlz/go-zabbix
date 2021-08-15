@@ -15,6 +15,7 @@ type jTrigger struct {
 	LastChange  int          `json:"lastchange,string"`
 	Severity    int          `json:"priority,string"`
 	State       int          `json:"state,string"`
+	Items       []*Item      `json:"items"`
 	Tags        jTriggerTags `json:"tags"`
 	LastEvent   *jEvent      `json:"lastEvent"`
 	URL         string       `json:"url"`
@@ -85,6 +86,8 @@ func (c *jTrigger) Trigger() (*Trigger, error) {
 	trigger.LastChange = c.LastChange
 	trigger.Severity = c.Severity
 	trigger.State = c.State
+	
+	trigger.Items = c.Items
 
 	// map tags
 	trigger.Tags, err = c.Tags.Tags()
