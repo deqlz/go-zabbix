@@ -50,6 +50,8 @@ func (c *jEvent) Event() (*Event, error) {
 	if err != nil {
 		return nil, fmt.Errorf("Error parsing Event Object ID: %v", err)
 	}
+	
+	event.Name = c.Name
 
 	event.Source, err = strconv.Atoi(c.Source)
 	if err != nil {
