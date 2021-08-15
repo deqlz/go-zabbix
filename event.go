@@ -115,7 +115,7 @@ type Event struct {
 	ObjectID int
 
 	Name string
-	Severity int
+	Severity string
 
 	// Value is the state of the related Object.
 	//
