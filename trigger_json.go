@@ -87,7 +87,10 @@ func (c *jTrigger) Trigger() (*Trigger, error) {
 	trigger.Severity = c.Severity
 	trigger.State = c.State
 	
-	trigger.Items = c.Items
+	trigger.Items, err = c.Items.Items()
+	if err != nil {
+		return nil, err
+	}
 
 	// map tags
 	trigger.Tags, err = c.Tags.Tags()
