@@ -15,6 +15,7 @@ type jEvent struct {
 	Nanoseconds  string `json:"ns"`
 	ObjectType   string `json:"object"`
 	ObjectID     string `json:"objectid"`
+	Name         string `json:name"`
 	Source       string `json:"source"`
 	Value        string `json:"value"`
 	ValueChanged string `json:"value_changed"`
