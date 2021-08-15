@@ -92,7 +92,7 @@ type Trigger struct {
 	// query parameters that returned this Trigger.
 	Tags []TriggerTag
 	
-	Items []Items
+	Items []Item
 
 	// LastEvent is the latest event for the trigger
 	//
