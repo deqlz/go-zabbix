@@ -113,6 +113,8 @@ type Event struct {
 
 	// ObjectID is the unique identifier of the Object that caused this Event.
 	ObjectID int
+	
+	Name string
 
 	// Value is the state of the related Object.
 	//
