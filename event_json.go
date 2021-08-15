@@ -16,6 +16,7 @@ type jEvent struct {
 	ObjectType   string `json:"object"`
 	ObjectID     string `json:"objectid"`
 	Name         string `json:"name"`
+	Severity     string `json:"severity"`
 	Source       string `json:"source"`
 	Value        string `json:"value"`
 	ValueChanged string `json:"value_changed"`
@@ -52,6 +53,7 @@ func (c *jEvent) Event() (*Event, error) {
 	}
 	
 	event.Name = c.Name
+	event.Severity = c.Severity
 
 	event.Source, err = strconv.Atoi(c.Source)
 	if err != nil {
