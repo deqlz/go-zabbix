@@ -53,7 +53,7 @@ func (c *jEvent) Event() (*Event, error) {
 	}
 	
 	event.Name = c.Name
-	event.Severity = strconv.Atoi(c.Severity)
+	event.Severity, _ = strconv.Atoi(c.Severity)
 
 	event.Source, err = strconv.Atoi(c.Source)
 	if err != nil {
