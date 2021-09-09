@@ -61,7 +61,7 @@ func (c *jEvent) Event() (*Event, error) {
 		return nil, fmt.Errorf("Error parsing Event Source: %v", err)
 	}
 
-	r_EventID, err = strconv.Atoi(c.REventID)
+	r_EventID, err := strconv.Atoi(c.REventID)
 	if r_EventID == 0 {
 		event.Value = 1
 	} else {
