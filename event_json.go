@@ -10,6 +10,7 @@ import (
 // See: https://www.zabbix.com/documentation/2.2/manual/api/reference/event/object
 type jEvent struct {
 	EventID      string `json:"eventid"`
+	REventID     string `json:"r_eventid"`
 	Acknowledged string `json:"acknowledged"`
 	Clock        string `json:"clock"`
 	Nanoseconds  string `json:"ns"`
@@ -55,7 +56,12 @@ func (c *jEvent) Event() (*Event, error) {
 		return nil, fmt.Errorf("Error parsing Event Source: %v", err)
 	}
 
-	event.Value, err = strconv.Atoi(c.Value)
+	r_EventID, err = strconv.Atoi(c.REventID)
+	if r_EventID == 0 {
+		event.Value = 1
+	} else {
+		event.Value = 0
+	}
 	if err != nil {
 		return nil, fmt.Errorf("Error parsing Event Source: %v", err)
 	}
